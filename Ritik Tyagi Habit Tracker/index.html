@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elevate Daily | Habit Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
+</head>
+<body>
+
+    <div id="login-container">
+        <h2>Sign In</h2>
+        <input type="text" id="username" placeholder="Username (ritiktyagi)" />
+        <input type="password" id="password" placeholder="Password (123)" />
+        <button id="login-button">Login</button>
+        <p id="login-message" class="error-text"></p>
+    </div>
+
+    <div id="intro-screen" class="hidden">
+        <p class="intro-text"><u>..Welcome To Elevate Daily - Your Ultimate Habit Tracker..</u></p>
+        <button id="start-button">Get Started</button>
+    </div>
+
+    <div class="container hidden">
+        
+        <div id="profile-corner">
+            <img src="https://img.icons8.com/material-rounded/24/user-male-circle.png" alt="User Profile" id="profile-pic"/>
+            <h2 id="username-display">Username</h2>
+        </div>
+        
+        <button id="theam" title="Toggle dark/light theme" aria-label="Toggle Dark/Light Theme">
+            <i class="fas fa-sun"></i> 
+        </button>
+        
+        <h1>🔥HABIT TRACKER🔥</h1>
+        
+        <div id="thought-corner">
+            <p id="quote-text">Loading inspiration...</p>
+            <small id="quote-author"></small>
+        </div>
+
+        <p class="description">
+            Track Your Daily Habits And Watch Yourself Grow!..
+        </p>
+        
+       <div id="reminder-section">
+            <h3>Daily Reminder</h3>
+            <input 
+                type="text" 
+                id="reminder-purpose-input" 
+                placeholder="e.g., Check off habits, Meditate, etc." 
+                value="Time to check off my habits!"
+                style="width: 100%; margin-bottom: 10px; padding: 10px; border-radius: 5px; border: 1px solid #90caf9;"
+            />
+            <input 
+                type="text" 
+                id="reminder-time-input" 
+                placeholder="HH:MM:SS AM/PM" 
+                value="09:00:00 AM" 
+                pattern="\d{2}:\d{2}:\d{2}\s(AM|PM)"
+                title="Time must be in HH:MM:SS AM/PM format (e.g., 09:00:00 AM)"
+            />
+            <button id="set-reminder-button">Set Reminder</button>
+            <button id="disable-reminder-button">Disable</button>
+            <p id="reminder-next-run" style="width: 100%; font-weight: bold; margin-top: 10px;"></p>
+            <p id="reminder-message" class="error-text"></p>
+        </div>
+        
+        <div id="task-bar">
+            <button class="tab-button active" data-tab="habits"><i class="fas fa-list-check"></i> Habits</button>
+            <button class="tab-button" data-tab="progress"><i class="fas fa-chart-line"></i> Progress</button>
+            <button class="tab-button" data-tab="goals"><i class="fas fa-bullseye"></i> Goals</button>
+        </div>
+        
+        <div id="habits" class="tab-content active">
+            <div class="add-habit">
+                <input type="text" id="habit-input" placeholder="Enter a new habit..." />
+                <button id="add-habit-button">Add Habit</button>
+            </div>
+            
+            <div id="habit-list">
+                <p id="empty-message" class="hidden">
+                    No habits yet! Add your first one above to start building your future.
+                </p>
+            </div>
+        </div>
+
+        <div id="progress" class="tab-content hidden-tab">
+            <div class="progress-section">
+                <h2>Your Progress</h2>
+                <div id="progress-stats">
+                    <p>Perfect Days: <span id="perfect-days-count">0</span></p>
+                    <p>Longest Streak: <span id="longest-streak">0</span> days</p>
+                </div>
+                
+                <h3 class="calendar-header">Completion Calendar</h3>
+                <div class="calendar-nav">
+                    <button id="prev-month">&lt;</button>
+                    <span id="current-month-year">October 2025</span> 
+                    <button id="next-month">&gt;</button>
+                </div>
+                <div id="calendar-view">
+                </div>
+            </div>
+        </div>
+
+        <div id="goals" class="tab-content hidden-tab">
+            <h2>🏆 Goals & Achievements 🏆</h2>
+            <p>This section is where you can set long-term goals and track achievements based on your habits (e.g., "7-Day Streak").</p>
+            <p>*** Logic for this section will be implemented in a future update! ***</p>
+        </div>
+    </div> 
+    
+    <button id="logout-button" class="logout-btn-global">
+        <i class="fas fa-sign-out-alt"></i> Sign Out
+    </button>
+    
+    <div id="calendar-detail-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3 id="modal-date-header">Date:</h3>
+            <div id="modal-habit-details"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
